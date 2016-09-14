@@ -3,14 +3,13 @@
 // https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 document.addEventListener('DOMContentLoaded', start)
 
-console.log("Everything OK?")
-
 function start () {
   // The first example is done for you. This will change the background colour of the first div
   // when you mouse over it.
   one();
   two();
   three();
+  four();
 
   // Your turn! Create a new function called `two`, then call it from here.
 }
@@ -39,24 +38,35 @@ function three () {
   three.addEventListener("mouseleave",makeWhite);
 }
 // CREATE FUNCTION four HERE
-
+function four () {
+  var four = document.getElementById("four");
+  four.addEventListener("click", makeFunky);
+  four.addEventListener("mouseleave", removeFunk);
+}
 // Changes the background color of event's target
 function makeBlue (evt) {
   evt.target.style.backgroundColor = 'blue';
-  console.log("making "+evt+"blue");
 }
 
 function makeWhite (evt) {
   evt.target.style.backgroundColor = 'white';
-  console.log("making "+evt+"white");
 }
 
 function makeGreen (evt) {
   evt.target.style.backgroundColor = 'green';
-  console.log("making "+evt+"green");
 }
 
 function makeOrange (evt) {
   evt.target.style.backgroundColor = "orange";
-  console.log("making "+evt+"orange");
+}
+
+function makeFunky (evt) {
+  evt.target.innerHTML = "FUNKY!!!!";
+  evt.target.style.border = "solid 10px red"
+  evt.target.style.backgroundColor = "#12FFD4"
+}
+
+function removeFunk (evt) {
+  evt.target.innerHTML = "Where'd the funk go?";
+  evt.target.style.backgroundColor = "purple";
 }
